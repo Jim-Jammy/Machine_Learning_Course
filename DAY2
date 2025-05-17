@@ -1,0 +1,13 @@
+Why Explore Data?
+Before building any Machine Learning model, it’s essential to understand the data — its structure, quality, and characteristics. This helps in making informed decisions for cleaning, feature selection, and modeling.
+
+import pandas as pd
+data = pd.read_csv('path_to_your_file.csv')
+data.head() - Displays the first 5 rows.
+data.columns - Lists all column names in the dataset.
+data.info() - Shows Total entries (rows), Column names with data types (int, float, object, etc.), Number of non-null values per column, Memory usage
+data.describe() - Provides statistics for numeric columns:, Count, Mean, Std (Standard Deviation), Min, 25%, 50% (Median), 75%, Max
+data.isnull().sum() - Shows number of missing (null) values in each column.
+data['SepalWidthCm'].head() - Fetches the first 5 values from the SepalWidthCm column.
+data[data['SepalWidthCm'] > 3].head() - Retrieves the first 5 rows where SepalWidthCm is greater than 3.
+data.sort_values(by='SepalWidthCm', ascending=False) - Sorts the entire dataset in descending order of SepalWidthCm.
