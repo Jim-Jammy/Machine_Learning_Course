@@ -1,0 +1,30 @@
+What is Machine Learning (ML)?
+Machine Learning is a way to teach machines how to perform tasks by learning from data, rather than being explicitly programmed. The goal is to enable machines to make predictions or decisions based on patterns found in data.
+
+Types of Machine Learning
+
+Supervised Learning
+The machine is trained on labeled data (data with input-output pairs).
+It learns to map inputs to known outputs to predict results on new data.
+Example: Predicting house prices from features like size, location, etc.
+
+Unsupervised Learning
+The machine works with unlabeled data (no explicit outputs).
+It tries to find hidden patterns or groupings in the data.
+Example: Customer segmentation based on purchasing behavior.
+
+Semi-Supervised Learning
+Uses a mix of labeled and unlabeled data.
+Helpful when labeled data is limited or expensive to obtain.
+
+First Step: Know Your Data
+Before building any ML model, understanding your data is crucial. Here are some basic commands to explore your dataset using Pandas (Python library):
+
+import pandas as pd
+data = pd.read_csv('path_to_your_csv_file')  # Load your dataset
+print(data.head())           # Shows top 5 entries of the data
+print(data.columns)          # Lists all column names
+print(data.describe())       # Shows statistics like count, mean, min, max, etc.
+print(data.isnull().sum())   # Counts missing values in each column
+
+
