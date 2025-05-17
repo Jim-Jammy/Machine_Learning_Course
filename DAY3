@@ -1,0 +1,72 @@
+### Handling Data
+
+##### Why Clean and Preprocess Data?
+Raw data often contains **missing values, duplicates, inconsistent formats, or irrelevant features**. Cleaning ensures quality and reliability, while preprocessing transforms data into a format suitable for ML algorithms.
+
+1. **Handling Missing Values**
+
+	- Check for missing values:
+	    `data.isnull().sum()`
+    
+- Ways to handle missing data:
+    
+    - **Remove rows/columns** with missing values (if few):
+        `data.dropna(inplace=True)`
+        ![[Pasted image 20250517122611.png]]
+        
+    - **Fill missing values** with:
+        
+        - Mean/Median/Mode (for numerical columns):
+            `data['ColumnName'].fillna(data['ColumnName'].mean(), inplace=True)`
+            ![[Pasted image 20250517122654.png]]
+            
+        - Forward fill or backward fill (for time-series data):
+            `data.ffill(inplace=True)`
+            `inplace=False`,The original DataFrame remains unchanged, The method returns a new modified DataFrame, You must assign it to a variable.
+            inplace=True`Changes are made directly to the original DataFrame, No need to reassign to a variable. The method returns None.
+            
+2. **Removing Duplicates**
+    
+	- Identify duplicates:
+	    `data.duplicated().sum()`
+    
+	- Remove duplicates:
+	    `data.drop_duplicates(inplace=True)`
+	![[Pasted image 20250517123906.png]]
+
+3. **Handling Incorrect Data Types**
+    
+	- Check data types:
+	    `data.dtypes`
+    
+	- Convert data types if necessary:
+	    `data['ColumnName'] = data['ColumnName'].astype('int')
+	    ![[Pasted image 20250517124508.png]]
+	    
+4. **Dealing with Outliers**
+    
+	- Outliers can skew your model. Identify using:
+	    `data.boxplot(column='ColumnName')`
+
+
+### Data Preprocessing for ML
+
+1. **Encoding Categorical Variables**
+
+	- Convert text categories into numerical format using:
+    
+	    - **Label Encoding** (for ordinal data):
+	        `from sklearn.preprocessing import LabelEncoder le = LabelEncoder() data['Category'] = le.fit_transform(data['Category'])`
+        
+	    - **One-Hot Encoding** (for nominal data):
+	        `data = pd.get_dummies(data, columns=['Category'])`
+        
+2. **Feature Scaling**
+    
+	- Scale features to normalize data for algorithms sensitive to magnitude differences:
+    
+	    - **Standardization (mean=0, std=1)**:
+	        `from sklearn.preprocessing import StandardScaler scaler = StandardScaler() data_scaled = scaler.fit_transform(data[['Feature1', 'Feature2']])`
+        
+	    - **Min-Max Scaling (range 0 to 1)**:
+        `from sklearn.preprocessing import MinMaxScaler scaler = MinMaxScaler() data_scaled = scaler.fit_transform(data[['Feature1', 'Feature2']])`
