@@ -1,0 +1,48 @@
+## Train-Test Split and Target Formatting
+
+#### What is Train-Test Split?
+
+Train-test split is the process of dividing your dataset into two parts:
+- **Training Set**: Used to train your machine learning model.
+- **Testing Set**: Used to evaluate the performance of the trained model on unseen data.
+
+---
+#### Why Do We Split the Data?
+
+- To **avoid overfitting**, where the model performs well only on the training data but fails on new data.
+- To **evaluate** the performance of the model using a separate test set before deploying.
+
+---
+#### Typical Ratio
+
+A common split is:
+- **80%** for training
+- **20%** for testing  
+    This can vary depending on the size of the dataset and the use case.
+---
+#### Features and Target (Labels)
+- The **features** (input variables) are usually all columns **except** the target column.
+- The **target** (label/output variable) is usually the column you're trying to predict.
+
+---
+#### Important Tip for Target Formatting
+
+The **target variable should be a 1D array (Series)**, not a 2D table (DataFrame), because:
+- Most machine learning models in `scikit-learn` expect the target (`y`) as a 1-dimensional series.
+- This helps avoid shape mismatches or unexpected behavior during training.
+
+---
+#### Random State
+
+- Setting a **random seed (random_state)** ensures that the data split is reproducible every time you run the code.
+- This is useful for debugging and model comparison.
+![[Pasted image 20250518121526.png]]
+---
+
+### Get into first model
+
+create the model, train it on data, predict on new data, check how well it performs, and then get a detailed report to understand the quality.
+![[Pasted image 20250518130620.png]]
+
+
+	
